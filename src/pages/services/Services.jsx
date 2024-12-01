@@ -5,7 +5,7 @@ import { Loader } from "@consta/uikit/Loader";
 
 const Services = function(){
     const [services, setServices] = useState();
-    
+
     useEffect(() => {
         async function loadData() {
             setServices(await getServiceListAction())
@@ -23,7 +23,7 @@ const Services = function(){
                 gridAutoRows: "200px"
                 // grid-auto-rows: 200px;
             }}>
-                {services.map(service => <Service id={service.id} name={service.name} description={service.description}/>)}
+                {services.map(service => <Service id={service.id} name={service.name} description={service.description} img={service.image}/>)}
             </div>
         </>
     )
