@@ -17,7 +17,6 @@ const userSlice = createSlice({
         clearUser: (state) => {
             dropToken()
             localStorage.removeItem("user")
-            console.log("drop user")
             state.user = null;
             state.token = '';
         }
