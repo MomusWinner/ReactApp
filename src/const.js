@@ -1,8 +1,7 @@
 export const APP_ROUTE = {
     main : "/main",
     services : "/services/",
-    auth: "/login",
-    signin: "/singin",
+    signin: "/login",
     profile: "/profile"
 }
 
