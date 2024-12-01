@@ -4,20 +4,20 @@ import { useState, } from 'react';
 import { signin } from '../../store/api-actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUser, clearUser } from '../../store/userSlice';
+import { useNavigate } from 'react-router';
 
 const Signin = ()=>{
+    const navigate = useNavigate()
 
-    const token = useSelector(state => state.user.token)
     const dispatch = useDispatch()
 
-    const [status, setStatus] = useState(state => state)
+    const [status, setStatus] = useState(null)
 
     const [login, setLogin] = useState(null);
     const handleLoginChange = (value) => setLogin(value);
 
     const [password, setPassword] = useState(null);
     const handlePasswordChange = (value) => setPassword(value);
-
 
     function handleSignin(){
         signin({
@@ -27,22 +27,15 @@ const Signin = ()=>{
             if (resp.status = 200){
                 let respData = resp.data
                 setStatus("success")
-                console.log("Success login")
                 dispatch(
                     setUser(
                         {
-                            user:
-                            {
-                                username: respData.username,
-                                firstName: respData.firstName,
-                                lastName: respData.lastName,
-                                email: respData.email,
-                                image: respData.image
-                            },
+                            user: respData,
                             token: respData.accessToken
                         }
                     )
                 )
+                navigate("/")
             }
         }).catch(_=>{
             setStatus("alert")
