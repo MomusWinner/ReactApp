@@ -19,10 +19,9 @@ const ServicePage = () => {
 
     return (
         <>
-            <p>{service.name}</p>
+            <h1>{service.name}</h1>
+            <img src={service.image}/>
             <p>{service.description}</p>
-            <p>{service.name}</p>
-            <p>{service.name}</p>
         </>
     )
 }
