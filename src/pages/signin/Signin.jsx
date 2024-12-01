@@ -31,7 +31,14 @@ const Signin = ()=>{
                 dispatch(
                     setUser(
                         {
-                            user:{username: respData.username, firstName: respData.firstName, lastName: respData.lastName},
+                            user:
+                            {
+                                username: respData.username,
+                                firstName: respData.firstName,
+                                lastName: respData.lastName,
+                                email: respData.email,
+                                image: respData.image
+                            },
                             token: respData.accessToken
                         }
                     )

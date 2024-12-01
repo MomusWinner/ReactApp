@@ -1,10 +1,10 @@
-import {Theme, presetGpnDark } from "@consta/uikit/Theme"
+import {Theme, presetGpnDefault } from "@consta/uikit/Theme"
 import Header from "../components/header/Header";
 
 const DefaultLayout = ({children}) => {
     return (
         <>
-            <Theme preset={presetGpnDark }>
+            <Theme preset={presetGpnDefault }>
                 <Header/>
                 <div style={{
                     width:"980px",

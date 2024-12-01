@@ -5,6 +5,8 @@ import { APP_ROUTE } from "../../const";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import Signin from "../../pages/signin/Signin";
 import ServicePage from "../../pages/servicePage/ServicePage";
+import Profile from "../../pages/profile/Profile";
+import { Responses404 } from '@consta/uikit/Responses404';
 
 const App = function(){
   return(
@@ -18,6 +20,8 @@ const App = function(){
             </Route>
             <Route path={APP_ROUTE.services + ":serviceId"} element={<ServicePage/>}></Route>
             <Route path={APP_ROUTE.signin} element={<Signin/>}/>
+            <Route path={APP_ROUTE.profile} element={<Profile/>}/>
+            <Route path="*" element={<Responses404/>}/>
           </Routes>
         </DefaultLayout>
       </BrowserRouter>
