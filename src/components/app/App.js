@@ -21,7 +21,7 @@ const App = function(){
             </Route>
             <Route path={APP_ROUTE.services + ":serviceId"} element={<CheckAuth><ServicePage/></CheckAuth>}></Route>
             <Route path={APP_ROUTE.signin} element={<Signin/>}/>
-            <Route path={APP_ROUTE.profile} element={<Profile/>}/>
+            <Route path={APP_ROUTE.profile} element={<CheckAuth><Profile/></CheckAuth>}/>
             <Route path="*" element={<Responses404/>}/>
           </Routes>
         </DefaultLayout>
