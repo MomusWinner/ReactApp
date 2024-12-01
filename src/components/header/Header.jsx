@@ -5,6 +5,8 @@ import { APP_ROUTE } from "../../const"
 import { useSelector } from "react-redux"
 import { clearUser } from "../../store/userSlice"
 import { useDispatch } from "react-redux"
+import { clearUser } from "../../store/userSlice"
+import { useDispatch } from "react-redux"
 
 const Header = function() {
     const user = useSelector(state => state.user.user)
