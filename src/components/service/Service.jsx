@@ -3,12 +3,15 @@ import {Text} from '@consta/uikit/Text'
 import { NavLink } from 'react-router';
 
 
-const Service = function({id, name, description}){
+const Service = function({id, name, description, img}){
     return(
         <Card verticalSpace="xs" horizontalSpace="xs"  style={{margin: "10px"}}>
             <NavLink to={id}>{name}</NavLink>
             <hr/>
-            <Text>{description}</Text>
+            <div style={{display: "flex"}}>
+                <img style={{width: "60px", height:"60px", marginRight: "10px"}} src={img}/>
+                <Text>{description}</Text>
+            </div>
         </Card>
     )
 }
