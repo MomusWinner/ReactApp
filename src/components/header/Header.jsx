@@ -38,9 +38,9 @@ const Header = function() {
         <div>
             <Button label="Главная страница" onClick={() => navigate(APP_ROUTE.main)} />
             <Button label="Услуги компании" onClick={() => navigate(APP_ROUTE.services)} />
+            <Button label={ user !== null ? user?.firstName + " " + user?.lastName: "Гость"}></Button>
             {authButton}
         </div>
-        <p>{user?.username ?? "Гость"}</p>
         </header>
     )
 }
