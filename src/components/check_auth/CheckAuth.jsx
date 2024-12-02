@@ -10,12 +10,11 @@ const CheckAuth = function({children}){
 
     useEffect(()=>{
         if(user === null){
-            console.log("not login")
             navigate(APP_ROUTE.signin)
         }
     },[])
 
     return children
 }
-console.log("login  ")
+
 export default CheckAuth

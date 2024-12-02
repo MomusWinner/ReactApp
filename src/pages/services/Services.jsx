@@ -26,7 +26,7 @@ const Services = function(){
                 gridAutoRows: "200px"
                 // grid-auto-rows: 200px;
             }}>
-                {services.map(service => <Service id={service.id} name={service.name} description={service.description} img={service.image}/>)}
+                {services.map(service => <Service key={service.id} id={service.id} name={service.name} description={service.description} img={service.image}/>)}
             </div>
         </>
     )

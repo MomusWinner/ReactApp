@@ -1,5 +1,6 @@
 import {Theme, presetGpnDefault } from "@consta/uikit/Theme"
-import Header from "../components/header/Header";
+import Header from "../components/header/Header"
+import Footer from "../components/footer/Footer"
 
 const DefaultLayout = ({children}) => {
     return (
@@ -12,6 +13,7 @@ const DefaultLayout = ({children}) => {
                 }}>
                     {children}
                 </div>
+                <Footer/>
             </Theme>
         </>
     )

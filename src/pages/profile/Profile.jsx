@@ -2,13 +2,15 @@ import { useSelector } from "react-redux"
 import { APP_ROUTE } from "../../const"
 import { useNavigate } from "react-router"
 import { Avatar } from '@consta/uikit/Avatar';
+import { useEffect } from "react";
 
 const Profile = function(){
     const navigate = useNavigate()
     const user = useSelector(state => state.user.user)
-
-    if (user === null)
+    useEffect(()=>{
         return navigate(APP_ROUTE.signin)
+    }, [])
+
     return(
     <>
         <div style={{
