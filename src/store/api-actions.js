@@ -2,6 +2,7 @@ import { API_AUTH_PATH, API_PATH } from "../const";
 import axios from "axios";
 
 export const getNewsListAction = async function(){
+    console.log("news --")
     const apiUrl = API_PATH + '/main';
     let response = await axios.get(apiUrl);
     return await response.data

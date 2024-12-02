@@ -60,7 +60,9 @@ const Signin = ()=>{
             value={password}
             onChange={handlePasswordChange}
         />
-        <Button label="Войти" onClick={handleSignin} style={{marginTop:"10px"}}/>
+        { (!password || !login) ? 
+                <Button label="Войти" disabled={true} onClick={handleSignin} style={{marginTop:"10px"}}/>
+            : <Button label="Войти" onClick={handleSignin} style={{marginTop:"10px"}}/>}
         </>
     )
 }
