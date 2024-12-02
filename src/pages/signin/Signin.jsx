@@ -19,6 +19,8 @@ const Signin = ()=>{
     const [password, setPassword] = useState(null);
     const handlePasswordChange = (value) => setPassword(value);
 
+    const [errorMessage, setErrorMessage] = useState("")
+
     function handleSignin(){
         signin({
             "username": login,
@@ -37,8 +39,9 @@ const Signin = ()=>{
                 )
                 navigate("/")
             }
-        }).catch(_=>{
+        }).catch(err=>{
             setStatus("alert")
+            setErrorMessage(JSON.parse(err.request.response).message)
         })
     }
 
@@ -60,7 +63,10 @@ const Signin = ()=>{
             value={password}
             onChange={handlePasswordChange}
         />
-        <Button label="Войти" onClick={handleSignin} style={{marginTop:"10px"}}/>
+        <p style={{color:"red"}}>{errorMessage}</p>
+        { (!password || !login) ? 
+            <Button label="Войти" disabled={true} onClick={handleSignin} style={{marginTop:"10px"}}/>
+            : <Button label="Войти" onClick={handleSignin} style={{marginTop:"10px"}}/>}
         </>
     )
 }

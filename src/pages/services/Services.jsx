@@ -2,15 +2,18 @@ import Service from "../../components/service/Service";
 import { useEffect,useState } from "react";
 import { getServiceListAction } from "../../store/api-actions";
 import { Loader } from "@consta/uikit/Loader";
+import { useSelector, useDispatch } from "react-redux";
+import { setServicesState } from "../../store/servicesSlice";
 
 const Services = function(){
-    const [services, setServices] = useState();
+    const dispatch = useDispatch()
+    const [services, setServices] = useState(useSelector(state => state.services.value));
 
     useEffect(() => {
-        async function loadData() {
-            setServices(await getServiceListAction())
-        }
-        loadData()
+        getServiceListAction().then(resp=>{
+            setServices(resp)
+            dispatch(setServicesState(resp))
+        })
     }, []);
 
     if (!services || services.length === 0) return  <Loader size="m" />
@@ -23,7 +26,7 @@ const Services = function(){
                 gridAutoRows: "200px"
                 // grid-auto-rows: 200px;
             }}>
-                {services.map(service => <Service id={service.id} name={service.name} description={service.description} img={service.image}/>)}
+                {services.map(service => <Service key={service.id} id={service.id} name={service.name} description={service.description} img={service.image}/>)}
             </div>
         </>
     )

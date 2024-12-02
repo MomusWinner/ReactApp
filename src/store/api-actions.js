@@ -21,7 +21,6 @@ export const getServiceAction = async function(id) {
 
 export const signin = async function(user) {
     const url = API_AUTH_PATH + '/login'
-    console.log(user)
     let response = await axios.post(url, user, {headers: {'Content-Type': 'application/json'}})
     return response
 }

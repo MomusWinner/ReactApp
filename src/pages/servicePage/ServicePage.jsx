@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router";
 import { getServiceAction } from "../../store/api-actions";
 import { Loader } from "@consta/uikit/Loader";
+import { useSelector } from "react-redux";
 
 const ServicePage = () => {
-    const [service, setService] = useState(null);
     let { serviceId } = useParams();
+    const [service, setService] = useState(useSelector(state => state.services.value).find(s => s.id == serviceId));
 
     useEffect(() => {
+            if(service)
             getServiceAction(serviceId).then(service=>{
                 setService(service)
             })

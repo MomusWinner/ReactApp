@@ -25,13 +25,14 @@ const Header = function() {
 
     return (
         <header style={{
-            display: "flex",
-            justifyContent: "space-around",
+            alignItems: "center",
+            padding: "10px 20px",
+            backgroundColor: "#f8f8f8",
+            borderBottom: "1px solid #ddd",
+            marginBottom: "1rem",
             position: "sticky",
-            top: 0,
-            paddingBottom: "20px",
         }}>
-        <div>
+        <div style={{display:"flex", justifyContent: "space-evenly"}}>
             <Button label="Главная страница" onClick={() => navigate(APP_ROUTE.main)} />
             <Button label="Услуги компании" onClick={() => navigate(APP_ROUTE.services)} />
             <Button
