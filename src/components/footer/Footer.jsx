@@ -11,7 +11,7 @@ const Footer = function(){
             <div style={{display:"flex", justifyContent: "space-evenly"}}>
                 <Button label="Главная страница" onClick={() => navigate(APP_ROUTE.main)} />
                 <Button label="Услуги компании" onClick={() => navigate(APP_ROUTE.services)} />
-                <p>@ {new Date().getFullYear()} 2024 Mega Company</p>
+                <p>@ {new Date().getFullYear()} Mega Company</p>
             </div>
         </footer>
     )
