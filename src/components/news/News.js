@@ -4,10 +4,12 @@ import {Text} from '@consta/uikit/Text'
 export const News = function({name, description, createdAt}){
     return(
         <Card verticalSpace="xs" horizontalSpace="xs" style={{marginBottom: "20px"}}>
-            <Text><b>{name}</b></Text>
+            <Text align='center'><b>{name}</b></Text>
             <hr/>
-            <Text>{description}</Text>
-            <Text>{createdAt}</Text>
+            <Text style={{padding:"10px"}}>{description}</Text>
+            <div style={{display:"flex", justifyContent: "flex-end"}}>
+                <Text view='ghost'>{createdAt}</Text>
+            </div>
         </Card>
     )
 }
