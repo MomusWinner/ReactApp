@@ -19,7 +19,7 @@ const ServicePage = () => {
             }).catch(_=>{navigate(APP_ROUTE.services)})
     }, []);
 
-    if(service === null){
+    if(service == null){
         return <Loader/>
     }
 
