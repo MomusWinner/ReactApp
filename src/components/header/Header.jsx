@@ -5,22 +5,32 @@ import { APP_ROUTE } from "../../const"
 import { useSelector } from "react-redux"
 import { clearUser } from "../../store/userSlice"
 import { useDispatch } from "react-redux"
+import "./Header.css"
 
 const Header = function() {
     const user = useSelector(state => state.user.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    var authButton = null
+    var tableAuth = null
 
     if (user === null){
-        authButton = <Button label="Вход" onClick={() => navigate(APP_ROUTE.signin)} />
+        tableAuth = 
+        <>
+            <Button className="tab" label="Гость" view="ghost"/>
+            <Button className="tab" label="Вход" onClick={() => navigate(APP_ROUTE.signin)} />
+        </>
     } else{
         let exit = ()=>{
             dispatch(clearUser())
             navigate(APP_ROUTE.signin)
         }
-        authButton = <Button label="Выход" onClick={exit} /> 
+        tableAuth =
+        <>
+            <Button className="tab" label="Услуги компании" onClick={() => navigate(APP_ROUTE.services)} />
+            <Button className="tab" label={user?.firstName + " " + user?.lastName} onClick={()=>navigate(APP_ROUTE.profile)}/> 
+            <Button className="tab" label="Выход" onClick={exit} />
+        </>
     }
 
     return (
@@ -32,14 +42,10 @@ const Header = function() {
             marginBottom: "1rem",
             position: "sticky",
         }}>
-        <div style={{display:"flex", justifyContent: "space-evenly"}}>
-            <Button label="Главная страница" onClick={() => navigate(APP_ROUTE.main)} />
-            <Button label="Услуги компании" onClick={() => navigate(APP_ROUTE.services)} />
-            <Button
-                label={ user !== null ? user?.firstName + " " + user?.lastName: "Гость"}
-                onClick={()=>navigate(APP_ROUTE.profile)}/>
-            {authButton}
-        </div>
+            <div style={{display:"flex", justifyContent: "space-evenly"}}>
+                <Button className="tab" label="Главная страница" onClick={() => navigate(APP_ROUTE.main)} />
+                {tableAuth}
+            </div>
         </header>
     )
 }

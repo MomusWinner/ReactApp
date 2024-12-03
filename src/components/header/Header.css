@@ -1,0 +1,5 @@
+.tab:hover
+.tab:focus
+.tab.active{
+    background-color: red;
+}
