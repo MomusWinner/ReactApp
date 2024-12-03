@@ -5,15 +5,25 @@ import Footer from "../components/footer/Footer"
 const DefaultLayout = ({children}) => {
     return (
         <>
-            <Theme preset={presetGpnDefault }>
-                <Header/>
-                <div style={{
-                    width:"980px",
+            <Theme preset={presetGpnDefault } style={{
+                display: "flex",
+                flexDirection: "column",
+                flexWrap: "nowrap",
+                minHeight: "100vh",
+            }}>
+                <div>
+                    <Header/>
+                </div>
+                <main style={{
+                    maxWidth:"1200px",
                     margin:"0px auto",
+                    flexGrow: 1
                 }}>
                     {children}
+                </main>
+                <div style={{marginBottom: "1rem"}}>
+                    <Footer/>
                 </div>
-                <Footer/>
             </Theme>
         </>
     )
