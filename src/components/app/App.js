@@ -8,6 +8,7 @@ import ServicePage from "../../pages/servicePage/ServicePage";
 import Profile from "../../pages/profile/Profile";
 import { Responses404 } from '@consta/uikit/Responses404';
 import CheckAuth from "../check_auth/CheckAuth";
+import { Button } from "@consta/uikit/Button";
 
 const App = function(){
   return(
@@ -22,7 +23,7 @@ const App = function(){
             <Route path={APP_ROUTE.services + ":serviceId"} element={<CheckAuth><ServicePage/></CheckAuth>}></Route>
             <Route path={APP_ROUTE.signin} element={<Signin/>}/>
             <Route path={APP_ROUTE.profile} element={<CheckAuth><Profile/></CheckAuth>}/>
-            <Route path="*" element={<Responses404/>}/>
+            <Route path="*" element={<Responses404 actions={<Button label="Назад" onClick={() => window.history.back()}/>}/>}/>
           </Routes>
         </DefaultLayout>
       </BrowserRouter>

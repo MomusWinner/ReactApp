@@ -9,7 +9,7 @@ const Service = function({id, name, description, img}){
             <NavLink to={id}>{name}</NavLink>
             <hr/>
             <div style={{display: "flex"}}>
-                <img style={{width: "60px", height:"60px", marginRight: "10px"}} src={img}/>
+                <img style={{width: "100px", height:"100px", marginRight: "10px"}} src={img}/>
                 <Text>{description}</Text>
             </div>
         </Card>
